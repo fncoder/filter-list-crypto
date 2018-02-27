@@ -1,0 +1,54 @@
+.filter-table{
+padding-top: 30px;
+}
+
+.filter-table-row{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.filter-table-col:nth-child(1n+3){
+  .category{
+  text-align: right;
+  }
+
+  .filter-item{
+  text-align: right;
+  }
+}
+
+.category{
+font-weight: 600;
+color: #262A35;
+font-size: 20px;
+padding-bottom: 14px;
+cursor: pointer;
+}
+
+.filter-item{
+padding: 12px 0;
+font-size: 18px;
+}
+
+.filter-table-col:nth-child(4), .filter-table-col:nth-child(5), .filter-table-col:nth-child(6){
+  .filter-item{
+  color: #3798DC;
+  }
+}
+
+.positive{
+color: #093;
+}
+
+.negative{
+color: #d14836;
+}
+
+.text-info{
+font-size: 24px;
+font-weight: 600;
+color: #8D8787;
+padding-top: 20px;
+text-align: center;
+}
