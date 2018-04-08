@@ -1,5 +1,5 @@
-# Register/login and commenting system
-> This app will allow you to register your account and create new entries.
-  Stack: React, Express and Node
+# Filtering cryptocurrency list
+> List of cryptocurrencies that you can filter according to the category
 
-[See Online](https://register-login-system.herokuapp.com/)
+
+[See Online](https://filter-list-crypto.herokuapp.com/)
