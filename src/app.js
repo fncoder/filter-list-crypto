@@ -1,9 +1,9 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const GlobalStyle = require('./scss/global.scss');
-const RenderHTML = require('./index.html');
-const Header = require('./components/header/Header.jsx');
-const FilterTable = require('./components/filter-table/FilterTable.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import GlobalStyle from './scss/global.scss';
+import RenderHTML from './index.html';
+import Header from'./components/header/Header.jsx';
+import FilterTable from './components/filter-table/FilterTable.jsx';
 
 class App extends React.Component {
   constructor(props) {
