@@ -1,4 +1,11 @@
-const React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  toggleClass: PropTypes.func.isRequired,
+  statusLang: PropTypes.string.isRequired,
+};
 
 const Header = props => (
   <div className="header">
@@ -14,4 +21,6 @@ const Header = props => (
   </div>
 );
 
-module.exports = Header;
+Header.propTypes = propTypes;
+
+export default Header;

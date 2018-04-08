@@ -2,8 +2,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const GlobalStyle = require('./scss/global.scss');
 const RenderHTML = require('./index.html');
-const Header = require('./components/header/Header.js');
-const FilterTable = require('./components/filter-table/FilterTable.js');
+const Header = require('./components/header/Header.jsx');
+const FilterTable = require('./components/filter-table/FilterTable.jsx');
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +49,6 @@ class App extends React.Component {
     this.setState({
       currentData: filtered,
     });
-    console.log('hgjgh');
   }
 
   filterCategory(e) {
@@ -172,8 +171,6 @@ class App extends React.Component {
       const toNumber = parseFloat(number).toFixed(2);
       return toNumber.replace('.', ',');
     }
-
-
     return parseFloat(number).toLocaleString();
   }
 
@@ -187,15 +184,21 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="wrapper app--wrapper">
-          <Header statusLang={this.state.toggleLang} toggleClass={this.toggleClass} handleSearch={this.handleSearch} />
-          <FilterTable format={this.removeSpaceNumber} percentageCategory={this.percentageCategory} filterCategory={this.filterCategory} currentData={this.state.currentData} />
+          <Header
+            statusLang={this.state.toggleLang}
+            toggleClass={this.toggleClass}
+            handleSearch={this.handleSearch}
+          />
+          <FilterTable
+            format={this.removeSpaceNumber}
+            percentageCategory={this.percentageCategory}
+            filterCategory={this.filterCategory}
+            currentData={this.state.currentData}
+          />
         </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
+ReactDOM.render(<App />, document.getElementById('root'));

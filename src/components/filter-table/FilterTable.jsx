@@ -1,4 +1,12 @@
-const React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  currentData: PropTypes.array.isRequired,
+  percentageCategory: PropTypes.func.isRequired,
+  format: PropTypes.func.isRequired,
+  filterCategory: PropTypes.func.isRequired,
+};
 
 const FilterTable = props => (
   <div className="filter-table">
@@ -36,4 +44,6 @@ const FilterTable = props => (
   </div>
 );
 
-module.exports = FilterTable;
+FilterTable.propTypes = propTypes;
+
+export default FilterTable;
