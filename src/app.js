@@ -11,7 +11,7 @@ class App extends React.Component {
 
     this.state = {
       data: undefined,
-      currentData: undefined,
+      currentData: [],
       toggleLang: false,
     };
 
