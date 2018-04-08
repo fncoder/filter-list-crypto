@@ -1,27 +1,38 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const ExtractCSS = new ExtractTextPlugin('./css/global.css')
+const ExtractCSS = new ExtractTextPlugin('./css/global.min.css')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: ['./src/app.js'],
   output: {
-    path: path.resolve(__dirname, 'src/static'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.min.js'
   },
   devServer: {
-    contentBase: 'static',
+    contentBase: 'dist',
     port: 3000
   },
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              emitWarning: true,
+              fix: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -34,7 +45,17 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractCSS.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
         })
       },
       {
@@ -47,10 +68,12 @@ module.exports = {
   },
   plugins: [
     ExtractCSS,
+    new UglifyJsPlugin(),
     new WriteFilePlugin,
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index.html'
+      template: './src/index.html',
+      filename: './index.html'
     })
   ]
 };
