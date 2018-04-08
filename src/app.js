@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyle from './scss/global.scss';
 import RenderHTML from './index.html';
-import Header from'./components/header/Header.jsx';
+import Header from './components/header/Header.jsx';
 import FilterTable from './components/filter-table/FilterTable.jsx';
 
 class App extends React.Component {
